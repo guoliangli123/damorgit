@@ -1,0 +1,95 @@
+//用户页
+.user-page-head{
+	padding-bottom:10px; 
+	border-bottom: 1px solid #999;
+    h1{
+        margin:0px;
+        font-size: 22px;
+        font-weight: normal;
+        color:#111111;
+    }
+    ul{
+        padding:0;
+        margin:0;
+    }
+    li{
+    	float: left;
+    	margin-left: 24px;
+    	a{
+    		color:#111111;
+    		font-size: 22px;
+    	}
+    }
+    
+}
+.user-search-content{
+	padding-top: 20px;
+	.input-group{
+		width:300px;
+		.btn{
+			background: #fff;
+			border: 1px solid #ccc;
+		}
+		span{
+			cursor: pointer;
+		}
+	}
+	.form-control:focus {
+	  border-color: #ccc;
+	  outline: 0;
+	 // box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #999;
+	 box-shadow:none;
+	}
+	ul{
+		margin: 0;
+	}
+	li{
+		float: left;
+		height: 34px;
+		line-height: 34px;
+		margin-left: 20px;
+		a{
+			color:#999;
+		}
+	}
+}
+
+.user-browser{
+	table{
+		width: 100%;
+		tr{
+			height: 140px;
+		}
+	}
+	padding: 40px 10px 10px 10px;
+	.user-info{
+		padding:5px;
+		margin-bottom: 15px;
+	}
+	.user-image{
+		float: left;
+		img{
+			width:80px;
+		    height: 80px;
+		
+		}
+	}
+	.user-details{
+		width:120px;
+		margin-left: 10px;
+		font-size: 15px;
+		a{
+			padding-bottom: 0px;
+			color:#111111;
+		}
+		span{
+			margin-left: 0px;
+		}
+	}
+	.user-tags{
+		clear:both;
+		margin-left: 90px;
+		position: relative;
+		top:-18px;
+	}
+}

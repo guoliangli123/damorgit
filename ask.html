@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>damor首页</title>
+    <link rel="shortcut icon" href="/" type="image/x-icon">
+    <!-- 需要异步加载的js -->
+    <!-- 需要加载的js -->
+    <!--[if lt IE 9]>    
+    <script src="./dist/scripts/html5shiv.min.js"></script>
+    <script src="./dist/scripts/selectivizr.min.js"></script>
+    <![endif]-->
+    <meta name='keywords' content="damor,问答">
+    <meta name='description' content="为问答而生">
+    <!-- <link rel="stylesheet" type="text/css" href="dist/plugins/bootstrap/css/bootstrap.css"> -->
+    <link rel="stylesheet" type="text/css" href="dist/styles/main.css">
+    <link rel="stylesheet" type="text/css" href="dist/styles/ask.css">
+</head>
+
+<body>
+    <header class="top-nav-bar">
+        <div class="top-nav-bar-inner dm-wrap clearfix">
+            <a class="top-link-logo fl" href="#"></a>
+            <div id="dm-top-search" class="dm-top-search">
+                <form method="GET" action="./" id="dm-top-search-form" class="dm-top-search-form">
+                    <label for="q" class="hide-text">达魔搜索</label>
+                    <div class="dm-top-search-input">
+                        <input type="text" class="" id="q" name="q" autocomplete="off" value="" placeholder="今天你遇到了什么问题...">
+                    </div>
+                    <button type="submit" class="dm-top-search-button btn"><span>提问</span></button>
+                </form>
+            </div>
+            <div class="dm-top-text fl">
+                <span>问题</span>
+                <span>用户</span>
+            </div>
+            <div class="top-user-nav fr">
+                <a href="#" class="dm-top-user">
+                    <img src="./dist/images/user.png" class='circle'>
+                </a>
+                <div class="dm-top-user-center hide">
+                    <div class="trg">
+                    </div>
+                    <ul>
+                        <li>
+                            <div><a href="">我的主页</a></div>
+                        </li>
+                        <li>
+                            <div><a href="">账户管理</a></div>
+                        </li>
+                        <li>
+                            <div><a href="">建议反馈</a></div>
+                        </li>
+                        <li>
+                            <div><a href="">用户申诉</a></div>
+                        </li>
+                        <li>
+                            <div><a href="">退出</a></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dm-top-sh fr">
+                <a href="">搜索</a>
+                <a href="">帮助</a>
+            </div>
+        </div>
+    </header>
+    <div class="dm-main">
+        <div class="dm-wrap">
+            <div class="ask-wrap">
+                <div class="dm-add-question-form">
+                    <form class='js-add-question-form'>
+                        <div class="dm-add-question-topic clearfix">
+                            <div class='fl title'><span >标题</span></div>
+                            <div class='input-wrap fl'><input type="text" name="topic" placeholder="一句话描述你的问题，以问号结尾"></div>
+                            <div class='fl help'><span>如何提问？</span></div>
+                        </div>
+                        <div class="dm-add-question-description clearfix">
+                            <div class='fl title content-title'><span>内容描述</span></div>
+                            <div class="fl" id='dm-editor'></div>
+                        </div>
+                        <div class="dm-add-question-tags clearfix">
+                            <div class='fl title'><span>标签</span></div>
+                            <div class="input-wrap fl tags-input-wrap">
+                            <div class="tags-container"></div>
+                            <input type="text" class='tags-input '  placeholder="添加标签，如DNA；基因等">
+                            <!-- <div class="aadtags-button"><span>+</span></div> -->
+                            </div>
+                            <div class='help fl'><span>如何选择标签？如何添加标签?</span></div>
+                            <div class='auto-tags-container'>
+                                
+                            </div>
+                        </div>
+                        <div class="control-btns clearfix">
+                            <input type="submit" name="提交">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+    </div>
+    <footer class='dm-bottom'>
+        <div class="dm-wrap foot-wrap">
+            <p>
+                <a href="">关于我们</a>
+                <a href="">联系我们</a>
+                <a href="">加入我们</a>
+                <a href="">网站相关</a>
+                <a href="">服务条款</a>
+                <a href="">合作单位</a>
+                <a href="">建议合作</a>
+            </p>
+            <p>Copyright © 2016 damor. 备案编号.当前呈现版本 16.08.16</p>
+        </div>
+    </footer>
+</body>
+<script type="text/javascript" src='./dist/scripts/jquery.min.js'></script>
+<script type="text/javascript" src='./dist/scripts/jquery.placeholder.js'></script>
+<script type="text/javascript" charset="utf-8" src="./dist/plugins/dmEditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="./dist/plugins/dmEditor/ueditor.all.js"></script>
+<script type="text/javascript" charset="utf-8" src="./dist/plugins/dmEditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="utf-8" src="./dist/plugins/dmEditor/kityformula-plugin/addKityFormulaDialog.js"></script>
+<script type="text/javascript" charset="utf-8" src="./dist/plugins/dmEditor/kityformula-plugin/getKfContent.js"></script>
+<script type="text/javascript" charset="utf-8" src="./dist/plugins/dmEditor/kityformula-plugin/defaultFilterFix.js"></script>
+<script type="text/javascript" src='./dist/scripts/damorParse.min.js'></script>
+<script type="text/javascript">
+    
+    jQuery(document).ready(function($) {
+
+        //placeholder
+
+     $('input, textarea').placeholder();
+
+         //placeholderend
+
+          var tagsInput=$('.tags-input');
+   // console.log(tagsInput);
+    var autoTagsContainer=$('.auto-tags-container');
+
+    var tagsContainer=$('.tags-container');
+    tagsInput.keyup(function() {
+      $.getJSON('./dist/testdata/tags.json', {
+            param1: tagsInput.val()
+        }, function(json) {
+            var dmParse = new damorParse(json, autoTagsContainer,tagsInput.val());
+                dmParse.renderTags();
+                if(tagsInput.val().length==0){
+                    autoTagsContainer.empty();
+                }
+        });
+    });
+    autoTagsContainer.on('click','li',function(e){
+        var htmltext='<span>';
+        htmltext+=$(e.target).text();
+        htmltext+='<span class="close">×</span></span>';
+        tagsContainer.append(htmltext);
+        autoTagsContainer.empty();
+        tagsInput.val('');
+        tagsInput.attr({
+            placeholder: ''
+        });
+    });
+
+    tagsContainer.on('click','.close',function(e){
+        $(this).parent().remove();
+    })
+
+
+     ue = UE.getEditor('dm-editor', {
+            toolbars: [
+                ['fullscreen', 'undo', 'redo', 'bold', 'italic', 'underline', 'insertcode', 'insertorderedlist', 'insertunorderedlist', 'kityformula', 'simpleupload', 'insertvideo']
+            ],
+            wordCount: false,
+            elementPathEnabled: false
+        });
+
+    });
+   
+  
+</script>
+</html>

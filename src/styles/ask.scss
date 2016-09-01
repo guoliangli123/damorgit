@@ -1,0 +1,162 @@
+.ask-wrap{
+	background: #eeeeee;
+	margin:50px auto;
+	padding: 30px 20px 20px 20px;
+	width: 700px;
+}
+
+.dm-main{
+	padding-top:0;
+}
+
+.dm-add-question-form{
+	.title{
+		font-size: 16px;
+		margin-right: 10px;
+		width:32px;
+		margin-top: 10px;
+	}
+	.content-title{
+		margin-top: 0px;
+	}
+	.input-wrap{
+		width:400px;
+		padding: 8px 10px;
+		background: #fff;
+		border: 1px solid #ccc;
+		input{
+			line-height: 22px;
+			font-size: 13px;
+			height: 22px;
+		}
+	}
+	.help{
+		width: 110px;
+		margin-left: 20px;
+		a{
+			color:#bb9b6d;
+		}
+	}
+}
+
+.dm-add-question-topic,.dm-add-question-description{
+	margin-bottom: 25px;
+	position: relative;
+}
+#dm-editor{
+	width: 616px;
+	min-height: 300px;
+}
+.tags-input-wrap{
+	position: relative;
+	input{
+		float: left;
+		width: 100px;
+	}
+}
+.aadtags-button{
+	position: absolute;
+	top:10px;
+	right: 8px;
+	color:#fff;
+	width: 20px;
+	height: 20px;
+	border-radius: 20px;
+	background: #111111;
+	cursor: pointer;
+	span{
+		margin-left: 1px;
+		font-size: 24px;
+		display: block;
+		margin-top: -8px;
+		user-select:none;
+	}
+}
+
+.dm-add-question-tags{
+	position: relative;
+
+	.tags-container{
+		float: left;
+		span{
+			padding: 0 5px;
+			font-size: 12px;
+		}
+		.close{
+			cursor: pointer;
+			width: 8px;
+			height: 8px;
+		}
+		.close:hover{
+			color:#666;
+		}
+	}
+}
+
+.control-btns{
+	margin-top: 30px;
+	input{
+		width: 160px;
+		padding: 5px 0;
+		border: 1px solid #111111;
+		float: right;
+		background: #eeeeee;
+		color:#111111;
+		font-size: 16px;
+	}
+	input:hover{
+		background: #111111;
+		color:#ffffff;
+	}
+}
+
+//搜索标签
+.auto-tags-container{
+	position: absolute;
+	ul{
+		margin:0px;
+		background: #fff;
+		width: 200px;
+		border-radius: 5px;
+		border: 1px solid #ccc;
+		box-shadow: 1px 1px 2px #666;
+	}
+	li{
+		padding: 5px;
+		height: 50px;
+		color:#111111;
+		img{
+			border-radius: 5px;
+			width:24px;
+			height: 24px;
+			margin-right: 10px;
+
+		}
+	}
+	li:hover{
+		background: #dddddd;
+	}
+	top:40px;
+	left:50px;
+}
+
+div[class^='warn']{
+	position: absolute;
+	left: 43px;
+	span{
+		color:red;
+		font-size: 12px;
+	}
+}
+.warn-topic,.warn-tags{
+	top:40px;
+	
+}
+.warn-content{
+	bottom: -20px;
+}
+
+
+.dm-bottom{
+	width: 100%;
+}

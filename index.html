@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>damor首页</title>
+    <link rel="shortcut icon" href="/" type="image/x-icon">
+    <!-- 需要异步加载的js -->
+    <!-- 需要加载的js -->
+    <!--[if lt IE 9]>    
+    <script src="./dist/scripts/html5shiv.min.js"></script>
+    <script src="./dist/scripts/selectivizr.min.js"></script>
+    <![endif]-->
+    <meta name='keywords' content="damor,问答">
+    <meta name='description' content="为问答而生">
+    <!-- <link rel="stylesheet" type="text/css" href="dist/plugins/bootstrap/css/bootstrap.css"> -->
+    <link rel="stylesheet" type="text/css" href="dist/styles/main.css">
+</head>
+
+<body>
+    <header class="top-nav-bar">
+        <div class="top-nav-bar-inner dm-wrap clearfix">
+            <a class="top-link-logo fl" href="#"></a>
+            <div id="dm-top-search" class="dm-top-search">
+                <form method="GET" action="./" id="dm-top-search-form" class="dm-top-search-form">
+                    <label for="q" class="hide-text">达魔搜索</label>
+                    <div class="dm-top-search-input">
+                        <input type="text" class="" id="q" name="q" autocomplete="off" value="" placeholder="今天你遇到了什么问题...">
+                    </div>
+                    <button type="submit" class="dm-top-search-button btn"><span>提问</span></button>
+                </form>
+            </div>
+            <div class="dm-top-text fl">
+                <span>问题</span>
+                <span>用户</span>
+            </div>
+            <div class="top-user-nav fr">
+                <a href="#" class="dm-top-user">
+                <img src="./dist/images/user.png" class='circle'>
+                </a>
+                <div class="dm-top-user-center hide">
+                    <div class="trg">
+                    </div>
+                    <ul>
+                        <li><div><a href="">我的主页</a></div></li>
+                        <li><div><a href="">账户管理</a></div></li>
+                        <li><div><a href="">建议反馈</a></div></li>
+                        <li><div><a href="">用户申诉</a></div></li>
+                        <li><div><a href="">退出</a></div></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dm-top-sh fr">
+                <a href="">搜索</a>
+                <a href="">帮助</a>
+            </div>
+        </div>
+    </header>
+    <div class="dm-main">
+        <div class="dm-wrap clearfix">
+            <div class="left-bar fl">
+                <header class="clearfix">
+                    <span class="fl">学科</span>
+                    <a class="fr subject-edit" href='javascript:;'>编辑</a>
+                </header>
+                <ul class="subject">
+                    <li>化学 <span class='close fr'>×</span></li>
+                    <li>生物 <span class='close fr'>×</span></li>
+                    <li class='active'>计算机<span class='close fr'>×</span></li>
+                    <li>生命科学 <span class='close fr'>×</span></li>
+                    <li>地理 <span class='close fr'>×</span></li>
+                    <li>药物 <span class='close fr'>×</span></li>
+                </ul>
+                <div class="subject-editor hide">
+                    <div class="triangle left-trg"></div>
+                    <div class="input-wrap">
+                        <input type='text' class="subject-search" placeholder="搜索你想关注的学科">
+                    </div>
+                    <ul class='subject-search-list'>
+                        <li>数学 <img src=""></li>
+                        <li>建筑 <img src=""></li>
+                        <li>电子信息 <img src=""></li>
+                        <li>材料 <img src=""></li>
+                        <li>气象 <img src=""></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="middle-bar">
+                <ul class="clearfix">
+                    <li>问答</li>
+                    <li>投票</li>
+                    <li>精选</li>
+                    <li>最新</li>
+                </ul>
+                <div class="question-feed-list">
+                    <div class="question-item clearfix">
+                        <div class="question-state fl">
+                            <div class='vote-state'>
+                                <span class="number">12345</span>
+                                <span>投票</span>
+                            </div>
+                            <div class='vote-state accept vote-state-question'>
+                                <span class="number">2345</span>
+                                <span>答案</span>
+                            </div>
+                            <div class='vote-state'>
+                                <span class="number">32515</span>
+                                <span>浏览</span>
+                            </div>
+                        </div>
+                        <div class="fr question-content">
+                            <div class="user-info clearfix">
+                                <a href="#" class="fl" user-id="代用名">
+                                    <img src="./dist/images/user2.jpg" class="circle fl">
+                                    <span class="fl">代用名</span>
+                                </a>
+                                <div class="user-detail fl">
+                                    <div><span>1.7k</span></div>
+                                    <div class="circle"></div>
+                                    <div><span>2</span></div>
+                                    <div class="circle"></div>
+                                    <div><span>5</span></div>
+                                    <div class="circle"></div>
+                                    <div><span>7</span></div>
+                                </div>
+                                <div class="ask-time fr">
+                                    <span>提问时间：2016-08-24 12:58:36</span>
+                                </div>
+                                
+                            </div>
+                            
+                            <h2><a href="#">ios开发中，我有一个15分钟倒计时的需求怎么解决</a></h2>
+                            <p>我在做一个蓝牙控制设备的App，有个倒计时的需求，倒计时最长15分钟，当时间到了给设备发消息，控制设备关闭。现在发现问题，在A</p>
+                            <div class="tags">
+                                <div tag-id='IOS'><span>IOS</span>
+
+
+                                </div>
+                                <div tag-id='倒计时'><span>倒计时</span></div>
+                                <div tag-id='APP'><span>APP</span></div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="question-item clearfix">
+                        <div class="question-state fl">
+                            <div class='vote-state'>
+                                <span class="number">12345</span>
+                                <span>投票</span>
+                            </div>
+                            <div class='vote-state accept vote-state-question'>
+                                <span class="number">2345</span>
+                                <span>答案</span>
+                            </div>
+                            <div class='vote-state'>
+                                <span class="number">32515</span>
+                                <span>浏览</span>
+                            </div>
+                        </div>
+                        <div class="fr question-content">
+                            <div class="user-info clearfix">
+                                <a href="#" class="fl" user-id="代用名">
+                                    <img src="./dist/images/user2.jpg" class="circle fl">
+                                    <span class="fl">代用名</span>
+                                </a>
+                                <div class="user-detail fl">
+                                    <div><span>1.7k</span></div>
+                                    <div class="circle"></div>
+                                    <div><span>2</span></div>
+                                    <div class="circle"></div>
+                                    <div><span>5</span></div>
+                                    <div class="circle"></div>
+                                    <div><span>7</span></div>
+                                </div>
+                                <div class="ask-time fr">
+                                    <span>提问时间：2016-08-24 12:58:36</span>
+                                </div>
+                                
+                            </div>
+                            
+                            <h2><a href="#">ios开发中，我有一个15分钟倒计时的需求怎么解决</a></h2>
+                            <p>我在做一个蓝牙控制设备的App，有个倒计时的需求，倒计时最长15分钟，当时间到了给设备发消息，控制设备关闭。现在发现问题，在A</p>
+                            <div class="tags">
+                                <div tag-id='IOS'><span>IOS</span>
+
+
+                                </div>
+                                <div tag-id='倒计时'><span>倒计时</span></div>
+                                <div tag-id='APP'><span>APP</span></div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="question-item clearfix">
+                        <div class="question-state fl">
+                            <div class='vote-state'>
+                                <span class="number">12345</span>
+                                <span>投票</span>
+                            </div>
+                            <div class='vote-state accept vote-state-question'>
+                                <span class="number">2345</span>
+                                <span>答案</span>
+                            </div>
+                            <div class='vote-state'>
+                                <span class="number">32515</span>
+                                <span>浏览</span>
+                            </div>
+                        </div>
+                        <div class="fr question-content">
+                            <div class="user-info clearfix">
+                                <a href="#" class="fl" user-id="代用名">
+                                    <img src="./dist/images/user2.jpg" class="circle fl">
+                                    <span class="fl">代用名</span>
+                                </a>
+                                <div class="user-detail fl">
+                                    <div><span>1.7k</span></div>
+                                    <div class="circle"></div>
+                                    <div><span>2</span></div>
+                                    <div class="circle"></div>
+                                    <div><span>5</span></div>
+                                    <div class="circle"></div>
+                                    <div><span>7</span></div>
+                                </div>
+                                <div class="ask-time fr">
+                                    <span>提问时间：2016-08-24 12:58:36</span>
+                                </div>
+                                
+                            </div>
+                            
+                            <h2><a href="#">ios开发中，我有一个15分钟倒计时的需求怎么解决</a></h2>
+                            <p>我在做一个蓝牙控制设备的App，有个倒计时的需求，倒计时最长15分钟，当时间到了给设备发消息，控制设备关闭。现在发现问题，在A</p>
+                            <div class="tags">
+                                <div tag-id='IOS'><span>IOS</span>
+
+
+                                </div>
+                                <div tag-id='倒计时'><span>倒计时</span></div>
+                                <div tag-id='APP'><span>APP</span></div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="question-item clearfix">
+                        <div class="question-state fl">
+                            <div class='vote-state'>
+                                <span class="number">12345</span>
+                                <span>投票</span>
+                            </div>
+                            <div class='vote-state accept vote-state-question'>
+                                <span class="number">2345</span>
+                                <span>答案</span>
+                            </div>
+                            <div class='vote-state'>
+                                <span class="number">32515</span>
+                                <span>浏览</span>
+                            </div>
+                        </div>
+                        <div class="fr question-content">
+                            <div class="user-info clearfix">
+                                <a href="#" class="fl" user-id="代用名">
+                                    <img src="./dist/images/user2.jpg" class="circle fl">
+                                    <span class="fl">代用名</span>
+                                </a>
+                                <div class="user-detail fl">
+                                    <div><span>1.7k</span></div>
+                                    <div class="circle"></div>
+                                    <div><span>2</span></div>
+                                    <div class="circle"></div>
+                                    <div><span>5</span></div>
+                                    <div class="circle"></div>
+                                    <div><span>7</span></div>
+                                </div>
+                                <div class="ask-time fr">
+                                    <span>提问时间：2016-08-24 12:58:36</span>
+                                </div>
+                                
+                            </div>
+                            
+                            <h2><a href="#">ios开发中，我有一个15分钟倒计时的需求怎么解决</a></h2>
+                            <p>我在做一个蓝牙控制设备的App，有个倒计时的需求，倒计时最长15分钟，当时间到了给设备发消息，控制设备关闭。现在发现问题，在A</p>
+                            <div class="tags">
+                                <div tag-id='IOS'><span>IOS</span>
+
+
+                                </div>
+                                <div tag-id='倒计时'><span>倒计时</span></div>
+                                <div tag-id='APP'><span>APP</span></div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="question-item clearfix">
+                        <div class="question-state fl">
+                            <div class='vote-state'>
+                                <span class="number">12345</span>
+                                <span>投票</span>
+                            </div>
+                            <div class='vote-state accept vote-state-question'>
+                                <span class="number">2345</span>
+                                <span>答案</span>
+                            </div>
+                            <div class='vote-state'>
+                                <span class="number">32515</span>
+                                <span>浏览</span>
+                            </div>
+                        </div>
+                        <div class="fr question-content">
+                            <div class="user-info clearfix">
+                                <a href="#" class="fl" user-id="代用名">
+                                    <img src="./dist/images/user2.jpg" class="circle fl">
+                                    <span class="fl">代用名</span>
+                                </a>
+                                <div class="user-detail fl">
+                                    <div><span>1.7k</span></div>
+                                    <div class="circle"></div>
+                                    <div><span>2</span></div>
+                                    <div class="circle"></div>
+                                    <div><span>5</span></div>
+                                    <div class="circle"></div>
+                                    <div><span>7</span></div>
+                                </div>
+                                <div class="ask-time fr">
+                                    <span>提问时间：2016-08-24 12:58:36</span>
+                                </div>
+                                
+                            </div>
+                            
+                            <h2><a href="#">ios开发中，我有一个15分钟倒计时的需求怎么解决</a></h2>
+                            <p>我在做一个蓝牙控制设备的App，有个倒计时的需求，倒计时最长15分钟，当时间到了给设备发消息，控制设备关闭。现在发现问题，在A</p>
+                            <div class="tags">
+                                <div tag-id='IOS'><span>IOS</span>
+
+
+                                </div>
+                                <div tag-id='倒计时'><span>倒计时</span></div>
+                                <div tag-id='APP'><span>APP</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="right-bar">
+                <div class="focus-question">
+                    <div class="container clearfix">
+                        <h2>焦点问题</h2>
+                        <img class="fl" src='./dist/images/user2.jpg'>
+                        <div class="fr content">
+                            <p>
+                                ios开发中，我有一个最长15分钟的倒计时的需求，时间到了给蓝牙设备发条信...
+                            </p>
+                            <footer>
+                                <div class="question-state fl">
+                                    <span class='number'>1265</span>
+                                    <span>浏览</span>
+                                </div>
+                                <div class="question-state fl">
+                                    <span class='number'>88</span>
+                                    <span>回答</span>
+                                </div>
+                                <div class="question-state fl">
+                                    <span class='number'>352</span>
+                                    <span>评论</span>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="hot-question">
+                    <div class="container">
+                        <header class="clearfix">
+                            <h2 class="fl">热门问题</h2>
+                            <a class="more fr" href="#">更多》</a>
+                        </header>
+                        <div class="hot-question-list">
+                            <div class="hot-question-item clearfix">
+                                <img src="./dist/images/user2.jpg" class="circle">
+                                <a href="#">
+                                        ios开发中，我有一个最长15分钟的倒计时的需求，时间到了给 ...
+                                    </a>
+                            </div>
+                        </div>
+                        <div class="hot-question-list">
+                            <div class="hot-question-item clearfix">
+                                <img src="./dist/images/user2.jpg" class="circle">
+                                <a href="#">
+                                        ios开发中，我有一个最长15分钟的倒计时的需求，时间到了给 ...
+                                    </a>
+                            </div>
+                        </div>
+                        <div class="hot-question-list">
+                            <div class="hot-question-item clearfix">
+                                <img src="./dist/images/user2.jpg" class="circle">
+                                <a href="#">
+                                        ios开发中，我有一个最长15分钟的倒计时的需求，时间到了给 ...
+                                    </a>
+                            </div>
+                        </div>
+                        <div class="hot-question-list">
+                            <div class="hot-question-item clearfix">
+                                <img src="./dist/images/user2.jpg" class="circle">
+                                <a href="#">
+                                        ios开发中，我有一个最长15分钟的倒计时的需求，时间到了给 ...
+                                    </a>
+                            </div>
+                        </div>
+                        <div class="hot-question-list">
+                            <div class="hot-question-item clearfix">
+                                <img src="./dist/images/user2.jpg" class="circle">
+                                <a href="#">
+                                        ios开发中，我有一个最长15分钟的倒计时的需求，时间到了给 ...
+                                    </a>
+                            </div>
+                        </div>
+                        <div class="hot-question-list">
+                            <div class="hot-question-item clearfix">
+                                <img src="./dist/images/user2.jpg" class="circle">
+                                <a href="#">
+                                        ios开发中，我有一个最长15分钟的倒计时的需求，时间到了给 ...
+                                    </a>
+                            </div>
+                        </div>
+                        <div class="hot-question-list">
+                            <div class="hot-question-item clearfix">
+                                <img src="./dist/images/user2.jpg" class="circle">
+                                <a href="#">
+                                        ios开发中，我有一个最长15分钟的倒计时的需求，时间到了给 ...
+                                    </a>
+                            </div>
+                        </div>
+                        <div class="hot-question-list">
+                            <div class="hot-question-item clearfix">
+                                <img src="./dist/images/user2.jpg" class="circle">
+                                <a href="#">
+                                        ios开发中，我有一个最长15分钟的倒计时的需求，时间到了给 ...
+                                    </a>
+                            </div>
+                        </div>
+                        <div class="hot-question-list">
+                            <div class="hot-question-item clearfix">
+                                <img src="./dist/images/user2.jpg" class="circle">
+                                <a href="#">
+                                        ios开发中，我有一个最长15分钟的倒计时的需求，时间到了给 ...
+                                    </a>
+                            </div>
+                        </div>
+                        <div class="hot-question-list">
+                            <div class="hot-question-item clearfix">
+                                <img src="./dist/images/user2.jpg" class="circle">
+                                <a href="#">
+                                        ios开发中，我有一个最长15分钟的倒计时的需求，时间到了给 ...
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class='dm-bottom'>
+        <div class="dm-wrap foot-wrap">
+            <p>
+                <a href="">关于我们</a>
+                <a href="">联系我们</a>
+                <a href="">加入我们</a>
+                <a href="">网站相关</a>
+                <a href="">服务条款</a>
+                <a href="">合作单位</a>
+                <a href="">建议合作</a>
+            </p>
+            <p>Copyright © 2016 damor. 备案编号.当前呈现版本 16.08.16</p>
+        </div>
+    </footer>
+</body>
+<script type="text/javascript" src='./dist/scripts/jquery.min.js'></script>
+<script type="text/javascript" src='./dist/scripts/damorParse.min.js'></script>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    var dmTopSearchInput = $('.dm-top-search-input input');
+    var dmTopSearchForm = $('.dm-top-search-form');
+    var subjectEdit = $('.subject-edit');
+    var subjectEditor = $('.subject-editor');
+    var subjectList=$('.subject');
+    var subjectSearchWrap=$('.subject-search-list');
+    var subjectSearchList=$('.subject-search-list li');
+    var subjectSearch=$('.subject-search');
+    var dmTopUserCenter=$('.dm-top-user-center');
+    var topUserNav=$('.top-user-nav');
+    //用户菜单
+    topUserNav.hover(function() {
+       dmTopUserCenter.fadeIn(); 
+    }, function() {
+         dmTopUserCenter.fadeOut(); 
+    });
+   //学科编辑
+    
+    subjectEdit.click(function() {
+        if (subjectEditor.is(":hidden")) {
+            subjectEditor.fadeIn();
+            $('.subject .close').each(function(index, el) {
+                $(el).fadeIn();
+                $(el).click(function() {
+                    $(this).parent().remove();
+                });
+            });
+        }
+        else{
+            subjectEditor.fadeOut();
+            $('.subject .close').each(function(index,el){
+                $(el).fadeOut();
+            })
+        }
+    });
+
+    subjectSearch.keyup(function() {
+      $.getJSON('./dist/testdata/subjects.json', {
+            param1: subjectSearch.val()
+        }, function(json) {
+            var dmParse = new damorParse(json, subjectSearchWrap,subjectSearch.val());
+            dmParse.renderS();
+        });
+  });
+    $('.subject-search-list').on('click','li', function(event) {
+        var tpl='<li>';
+        tpl+=$(this).text();
+        tpl+='<span class="close fr">×</span></li>';
+        //console.log(subjectSearch);
+        subjectList.append(tpl); 
+        $(event.target).remove();   
+    });
+     
+    //请求用户信息
+    var userInfoA=$('.user-info>a');
+   // console.log(userInfoA);
+    userInfoA.each(function(index, el) {
+     $(el).hover(function() {
+        $.getJSON('./dist/testdata/userInfo.json', {
+            param1: $(el).attr('user-id')
+        }, function(json) {
+            var dmParse = new damorParse(json, $(el));
+            dmParse.renderU();
+            //console.log(dmParse.template);
+        });
+     }, function() {
+        $('.auto-userinfo').remove();
+     });   
+    });
+
+    //请求标签信息
+    var tags=$('.tags>div');
+    tags.each(function(index, el) {
+     $(el).hover(function() {
+        $.getJSON('./dist/testdata/tagInfo.json', {
+            param1: $(el).attr('tag-id')
+        }, function(json) {
+            var dmParse = new damorParse(json, $(el));
+            dmParse.renderTag();
+           // console.log(dmParse.template);
+        });
+     }, function() {
+        $('.auto-tag').remove();
+     });   
+    });
+
+    // 请求json文件
+    dmTopSearchInput.keyup(function() {
+        $.getJSON('./dist/testdata/results.json', {
+            param1: $('.dm-top-search-input').val()
+        }, function(json) {
+            var dmParse = new damorParse(json, dmTopSearchForm, dmTopSearchInput.val());
+            dmParse.render();
+        });
+    })
+});
+</script>
+
+</html>
+

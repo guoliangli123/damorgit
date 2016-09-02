@@ -6,6 +6,7 @@
 @import "bootstrap/input-groups";
 $topColor:#412c31;
 $textColor:#999;
+$warnColor:red;
 // 通用样式
 * {
     box-sizing: border-box;
@@ -80,8 +81,9 @@ dfn {
 }
 
 h1 {
-    margin: .67em 0;
+    margin:0;
     font-size: 2em;
+    font-weight: normal;
 }
 
 mark {
@@ -350,6 +352,7 @@ li {
     width: 100%;
     margin: 0 auto;
     padding: 0 10px;
+    text-align: center;
 }
 
 // 导航样式
@@ -624,9 +627,13 @@ input:focus {
 
 .subject>li {
     padding: 0 10px;
+    cursor: pointer;
     .close{
         cursor: pointer;
         display: none;
+    }
+    .close:hover{
+        color:#111111;
     }
 }
 
@@ -642,6 +649,7 @@ input:focus {
     left:175px;
     width:220px;
     border:1px solid #eeeeee;
+    z-index: 100;
     .input-wrap{
         background: #f9f9f9;
         height: 80px;
@@ -1010,6 +1018,88 @@ input:focus {
     }
 }
 
+//首页学科选择
+.firstscreen-subjectselect-wrap{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 2001;
+    background: #fff;
+    box-shadow: 3px 3px 10px rgba(0,0,0,.3);
+    border-radius: 3px;
+    margin:-262px 0 0 -404px; 
+}
+.firstscreen-subjectselect{
+    padding: 20px 8px;
+    header{
+        text-align: center;
+        h1{
+           color:#111111;
+           font-size: 20px;
+        }
+    }
+    .content{
+        margin: 20px 0;
+        height: 402px;
+        overflow-y: scroll;
+        ::-webkit-scrollbar{
+          width: 2px;
+        } 
+    }
+    table{
+        border-spacing:12px;
+        border-collapse:separate;
+    }
+    tr{
+        height: 118px;
+        overflow: hidden;
+    }
+    td{
+        position: relative;
+        div{
+            height: 118px;
+            overflow: hidden;
+        }
+        p{
+            text-align: center;
+            position: absolute;
+            bottom:0;
+            width: 100%;
+            background: #000;
+            filter: alpha(opacity=50);
+            opacity: .5;
+            margin: 0;
+            color:#fff;
+        }
+        input[type='checkbox']{
+            position: absolute;
+            top:3px;
+            right:3px;
+            width: 16px;
+            height: 16px;
+        }
+        img{
+            width: 118px;
+            height: 118px;
+            border-radius: 2px;
+        }
+    }
+    .skip{
+        background: #fff;
+        border:none;
+        font-size: 18px;
+        margin-left: 12px;
+    }
+    input[type='submit']{
+        width: 160px;
+        padding: 5px;
+        font-size:18px;
+        background: #412c31;
+        color:#fff;
+    }
+
+}
+
 //登录页
 .login-top {
     background: #f8f8f8;
@@ -1081,7 +1171,7 @@ input:focus {
 .login-btns {
     height: 150px;
     width: 90px;
-    background: #A11514;
+    background: url('../images/loginred.png') no-repeat;
     padding: 19px 0;
     position: absolute;
     top: 50%;
@@ -1091,6 +1181,10 @@ input:focus {
         color: #FFC888;
         font-size: 30px;
         width: 100%
+    }
+    a:active{
+        border:none;
+        box-shadow: none;
     }
 }
 
@@ -1119,16 +1213,34 @@ input:focus {
 
 .login-box {
     width: 500px;
-    height: 425px;
     z-index: 2001;
     position: fixed;
     top: 50%;
     left: 50%;
-    margin: -212.5px 0 0 -250px;
+    margin: -262.5px 0 0 -250px;
     background: #fff;
     border-radius: 5px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, .3);
     overflow: hidden;
+
+    .login-main{
+        padding-bottom: 30px;
+    }
+    .success-tab{
+        margin: 160px 95px 120px 95px;
+        text-align: center;
+        font-size: 18px;
+        a{
+            color:#fff;
+            background: #412c31;
+            padding:10px 55px;
+            margin-top: 40px;
+            display: inline-block;
+        }
+        p{
+            margin: 0;
+        }
+    }
 }
 
 .login-hd {
@@ -1200,6 +1312,16 @@ input:focus {
     }
     button {
         margin-top: 10px;
+    }
+   
+    .warn{
+        color:$warnColor;
+        margin-left:10px;
+        position: relative;
+        top:-15px;
+    }
+    .warn:last-child{
+        top:0px;
     }
 }
 
@@ -1284,6 +1406,32 @@ input:focus {
             }
         }
 
+    }
+}
+
+//首页问题弹框
+.auto-questions{
+    position: absolute;
+    top:50px;
+    width:438px;
+    background:#fff;
+    z-index: 100;
+    padding: 10px;
+    header{
+        text-align: center;
+        p{
+            margin: 0;
+        }
+        margin-top: 10px;
+    }
+    .questions-list{
+        margin:0;
+    }
+    .question-item{
+        border-bottom: 1px solid #ccc;
+    }
+    .question-item:first-child{
+        border-top: 1px solid #ccc;
     }
 }
 

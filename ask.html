@@ -6,7 +6,7 @@
     <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>damor首页</title>
+    <title>damor提问</title>
     <link rel="shortcut icon" href="/" type="image/x-icon">
     <!-- 需要异步加载的js -->
     <!-- 需要加载的js -->
@@ -70,31 +70,36 @@
             </div>
         </div>
     </header>
-    <div class="dm-main">
-        <div class="dm-wrap">
+    <div class="dm-main ">
+        <div class="dm-wrap clearfix">
             <div class="ask-wrap">
                 <div class="dm-add-question-form">
-                    <form class='js-add-question-form'>
+                    <form class='js-add-question-form' method="post" action="./controller">
                         <div class="dm-add-question-topic clearfix">
-                            <div class='fl title'><span >标题</span></div>
-                            <div class='input-wrap fl'><input type="text" name="topic" placeholder="一句话描述你的问题，以问号结尾"></div>
-                            <div class='fl help'><span>如何提问？</span></div>
+                            <div class='fl title'><span>标题</span></div>
+                            <div class='input-wrap fl'>
+                                <input type="text" name="topic" placeholder="一句话描述你的问题，以问号结尾">
+                            </div>
+                            <div class='fl help'><span><a href="help">如何提问？</a></span></div>
+                            <div class="warn-topic hide"><span>请您添加标题</span></div>
                         </div>
                         <div class="dm-add-question-description clearfix">
                             <div class='fl title content-title'><span>内容描述</span></div>
-                            <div class="fl" id='dm-editor'></div>
+                            <div class="fl" id='dm-editor' name='content'></div>
+                            <div class="warn-content hide"><span>请您添加内容</span></div>
                         </div>
                         <div class="dm-add-question-tags clearfix">
                             <div class='fl title'><span>标签</span></div>
                             <div class="input-wrap fl tags-input-wrap">
-                            <div class="tags-container"></div>
-                            <input type="text" class='tags-input '  placeholder="添加标签，如DNA；基因等">
-                            <!-- <div class="aadtags-button"><span>+</span></div> -->
+                                <div class="tags-container"></div>
+                                <input type="text" class='tags-input' placeholder="添加标签如DNA">
+                                <!-- <div class="aadtags-button"><span>+</span></div> -->
                             </div>
-                            <div class='help fl'><span>如何选择标签？如何添加标签?</span></div>
+                            <div class='help fl'><span><a href="/help">如何选择标签？</a></span><span><a href="/help">如何添加标签？</a></span></div>
                             <div class='auto-tags-container'>
-                                
                             </div>
+                            <input type="hidden" name="tags-hidden">
+                            <div class="warn-tags hide"><span>请您添加标签</span></div>
                         </div>
                         <div class="control-btns clearfix">
                             <input type="submit" name="提交">
@@ -102,7 +107,7 @@
                     </form>
                 </div>
             </div>
-            </div>
+        </div>
     </div>
     <footer class='dm-bottom'>
         <div class="dm-wrap foot-wrap">
@@ -129,35 +134,41 @@
 <script type="text/javascript" charset="utf-8" src="./dist/plugins/dmEditor/kityformula-plugin/defaultFilterFix.js"></script>
 <script type="text/javascript" src='./dist/scripts/damorParse.min.js'></script>
 <script type="text/javascript">
-    
-    jQuery(document).ready(function($) {
+jQuery(document).ready(function($) {
 
-        //placeholder
+    //placeholder
+    $('input, textarea').placeholder();
+    var dmTopUserCenter = $('.dm-top-user-center');
+    var topUserNav = $('.top-user-nav');
+    var tagsInputValue = '';
+    //用户菜单
+    topUserNav.hover(function() {
+        dmTopUserCenter.fadeIn();
+    }, function() {
+        dmTopUserCenter.fadeOut();
+    });
 
-     $('input, textarea').placeholder();
+    var tagsInput = $('.tags-input');
+    var autoTagsContainer = $('.auto-tags-container');
 
-         //placeholderend
-
-          var tagsInput=$('.tags-input');
-   // console.log(tagsInput);
-    var autoTagsContainer=$('.auto-tags-container');
-
-    var tagsContainer=$('.tags-container');
+    var tagsContainer = $('.tags-container');
     tagsInput.keyup(function() {
-      $.getJSON('./dist/testdata/tags.json', {
+        $('.warn-tags').hide();
+        $.getJSON('./dist/testdata/tags.json', {
             param1: tagsInput.val()
         }, function(json) {
-            var dmParse = new damorParse(json, autoTagsContainer,tagsInput.val());
-                dmParse.renderTags();
-                if(tagsInput.val().length==0){
-                    autoTagsContainer.empty();
-                }
+            var dmParse = new damorParse(json, autoTagsContainer, tagsInput.val());
+            dmParse.renderTags();
+            if (tagsInput.val().length == 0) {
+                autoTagsContainer.empty();
+            }
         });
     });
-    autoTagsContainer.on('click','li',function(e){
-        var htmltext='<span>';
-        htmltext+=$(e.target).text();
-        htmltext+='<span class="close">×</span></span>';
+    autoTagsContainer.on('click', 'li', function(e) {
+        var htmltext = '<span>';
+        htmltext += $(e.target).text();
+        tagsInputValue += $(e.target).text() + ',';
+        htmltext += '<span class="close">×</span></span>';
         tagsContainer.append(htmltext);
         autoTagsContainer.empty();
         tagsInput.val('');
@@ -166,21 +177,60 @@
         });
     });
 
-    tagsContainer.on('click','.close',function(e){
+    tagsContainer.on('click', '.close', function(e) {
         $(this).parent().remove();
-    })
-
-
-     ue = UE.getEditor('dm-editor', {
-            toolbars: [
-                ['fullscreen', 'undo', 'redo', 'bold', 'italic', 'underline', 'insertcode', 'insertorderedlist', 'insertunorderedlist', 'kityformula', 'simpleupload', 'insertvideo']
-            ],
-            wordCount: false,
-            elementPathEnabled: false
-        });
-
     });
-   
-  
+    ue = UE.getEditor('dm-editor', {
+        toolbars: [
+            ['fullscreen', 'bold', 'italic', 'underline', 'insertcode', 'insertorderedlist', 'insertunorderedlist', 'kityformula', 'simpleupload', 'insertvideo']
+        ],
+        wordCount: false,
+        elementPathEnabled: false,
+        imageScaleEnabled: false
+    });
+
+
+
+    var submitBtn = $('input[type=submit]');
+    var topicInput = $('input[name=topic]');
+    var askForm = $('.js-add-question-form')[0];
+
+    submitBtn.click(function(event) {
+        $('input[name=tags-hidden]').val(tagsInputValue);
+        if (!topicInput.val()) {
+            $('.warn-topic').show();
+            event.preventDefault();
+        } else {
+            $('.warn-topic').hide();
+        }
+        if (!$('input[name=tags-hidden]').val()) {
+            $('.warn-tags').show();
+            event.preventDefault();
+        } else {
+            $('.warn-tags').hide();
+        }
+        if (!ue.getContent()) {
+            $('.warn-content').show();
+            event.preventDefault();
+        } else {
+            $('.warn-content').hide();
+        }
+    });
+
+    askForm.onsubmit = function() {
+        kfSubmit();
+        return false;
+    };
+
+    var kfSubmit = function() {
+        ue.getKfContent(function(content) {
+            askForm.submit();
+        })
+    }
+
+
+
+});
 </script>
+
 </html>

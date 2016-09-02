@@ -9,7 +9,6 @@
     <title>damor登录</title>
     <link rel="shortcut icon" href="/" type="image/x-icon">
     <!-- 需要异步加载的js -->
-    
     <!-- 需要加载的js -->
     <!--[if lt IE 9]>    
     <script src="./dist/scripts/html5shiv.min.js"></script>
@@ -27,10 +26,10 @@
             <a href="" class='login-top-logo-a'>DAMOR</a>
         </div>
         <div class="login-first-screen">
-            <img src="./dist/images/login.jpg">
+            <img src="./dist/images/heshang.jpg">
             <div class="login-btns">
-                <a href="javascript:;" class="btn" id='loginBtn'>登录</a>
-                <a href="javascript:;" class="btn" id="registBtn">注册</a>
+                <a class="btn" id='loginBtn'>登录</a>
+                <a class="btn" id="registBtn">注册</a>
             </div>
         </div>
     </header>
@@ -117,7 +116,7 @@
                 <a class="tab-btn">注册</a>
             </div>
             <div class="login-tab">
-                <form>
+                <form method="post" action="login.jsp" id='login-form'>
                     <div class="input-group">
                         <span class="input-group-addon">邮箱：</span>
                         <input type="text" class="form-control">
@@ -131,68 +130,127 @@
                 </form>
             </div>
             <div class="regist-tab">
-                <form>
+                <form id='regist-form' method="post" action="regist.jsp">
                     <div class="input-group">
                         <span class="input-group-addon">邀请码：</span>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name='inviteId'>
                     </div>
+                    <div class="warn"><span id='invite-warn'></span></div>
                     <div class="input-group">
                         <span class="input-group-addon">邮箱：</span>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name='email'>
                     </div>
+                    <div class="warn"><span id='email-warn'></span></div>
                     <div class="input-group">
                         <span class="input-group-addon">密码：</span>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name='password'>
                     </div>
+                    <div class="warn"><span id='password-warn'></span></div>
                     <div>
                         <label>
-                            <input type="checkbox" value="option1">
-                            同意<a href="">网站协议</a>
+                            <input type="checkbox" checked> 同意
+                            <a href="">网站协议</a>
                         </label>
+                        <div class="warn"><span id='agreement-warn'></span></div>
                     </div>
-                    <button type="submit">注册</button>
+                    <button type="submit" id='regist-submit'>注册</button>
                 </form>
             </div>
-            <div class="regist-tab"></div>
+        </div>
+        <div class="success-tab hide">
+            <p>我们已经将验证码发送到您的注册邮箱</p>
+            <p>请登陆邮箱进行验证!</p>
+            <a href="">去邮箱</a>
         </div>
     </div>
     <div class="dm-mask hide"></div>
-    <script type="text/javascript" src='./dist/scripts/jquery-1.10.2.min.js'></script>
+    <script type="text/javascript" src='./dist/scripts/jquery.min.js'></script>
+    <script type="text/javascript" src='./dist/scripts/damor.min.js'></script>
     <script type="text/javascript">
-        $(document).ready(function(){
-            var loginBtn=$("#loginBtn");
-            var registBtn=$("#registBtn");
-            var dmMask=$(".dm-mask");
-            var loginBox=$(".login-box");
-            var loginTab=$(".login-tab");
-            var registTab=$(".regist-tab");
-            var tabBtn=$('.tab-btn');
-            loginBtn.click(function(){
-                dmMask.show();
-                registTab.hide();
-                loginTab.show();
-                $(tabBtn[0]).addClass('active');
-                $(tabBtn[1]).removeClass('active');
-                loginBox.show();
-                dmMask.click(function(){
-                    loginBox.hide();
-                    dmMask.hide();
-                })
+    $(document).ready(function() {
+        var loginBtn = $("#loginBtn");
+        var registBtn = $("#registBtn");
+        var dmMask = $(".dm-mask");
+        var loginBox = $(".login-box");
+        var loginTab = $(".login-tab");
+        var registTab = $(".regist-tab");
+        var tabBtn = $('.tab-btn');
+        loginBtn.click(function() {
+            dmMask.show();
+            registTab.hide();
+            loginTab.show();
+            $(tabBtn[0]).addClass('active');
+            $(tabBtn[1]).removeClass('active');
+            loginBox.show();
+            dmMask.click(function() {
+                loginBox.hide();
+                dmMask.hide();
+            })
+        });
+        registBtn.click(function() {
+            dmMask.show();
+            loginTab.hide();
+            registTab.show();
+            $(tabBtn[0]).addClass('active');
+            $(tabBtn[1]).removeClass('active');
+            loginBox.show();
+            dmMask.click(function() {
+                loginBox.hide();
+                dmMask.hide();
             });
-            registBtn.click(function(){
-                dmMask.show();
-                loginTab.hide();
-                registTab.show();
-                $(tabBtn[0]).addClass('active');
-                $(tabBtn[1]).removeClass('active');
-                loginBox.show();
-                dmMask.click(function(){
-                    loginBox.hide();
-                    dmMask.hide();
-                });
-            });
+        });
 
-            }); 
+        //验证
+        $("#regist-submit").click(function(event) {
+            var inviteId = $("input[name='inviteId']").val();
+            var email = $("input[name='email']").val();
+            var password = $("input[name='password']").val();
+            var agreement = $('input[type="checkbox"]')
+            if (inviteId == '' || inviteId == null) {
+                $('#invite-warn').text('请输入邀请码');
+                return false;
+            }
+            var emailreg = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
+            if (email == '' || email == null) {
+                $('#email-warn').text('请输入邮箱');
+                return false;
+            } else if (!emailreg.test(email)) {
+                $('#email-warn').text('请输入正确的邮箱格式');
+                return false;
+            }
+
+            var lenreg = /^\S{6,20}$/;
+            var numberreg = /^\d{6,20}$/;
+            if (!lenreg.test(password)) {
+                $('#password-warn').text('密码长度为6-20个字符');
+                return false;
+
+            } else {
+                if (numberreg.test(password)) {
+                    $('#password-warn').text('密码不能全为数字');
+                    return false;
+                }
+            }
+            if (!agreement.is(':checked')) {
+                $('#agreement-warn').text('请同意网站协议');
+                return false;
+            }
+            $('#regist-form').submit();
+
+        });
+
+        var registForm = $("#regist-form");
+        var action = registForm.attr("action");
+        registForm.on("submit", function() {
+            $.post(action, registForm.serialize(), function(res) {
+                $('.login-main').hide();
+                $('.success-tab').show();
+            }, 'json');
+            return false
+        });
+
+
+    });
     </script>
 </body>
 
